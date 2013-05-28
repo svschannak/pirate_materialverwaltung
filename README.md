@@ -1,9 +1,5 @@
-pinax-project-account
-=====================
+# Materialverwaltung
 
-a starter project the incorporates account features from django-user-accounts
+Eine Django-Anwendung zur Verwaltung des Inventars. Kann in vielen Umgebungen eingesetzt werden.
 
-
-Usage:
-
-    django-admin.py startproject --template=https://github.com/pinax/pinax-project-account/zipball/master <project_name>
+Stand: 28. Mai 2013 - 0.1
