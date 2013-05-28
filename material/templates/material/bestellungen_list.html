@@ -1,0 +1,23 @@
+{% extends "material_base.html" %}
+{% block content %}
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Inventar</th>
+            <th>Status</th>
+            <th>Rechnung</th>
+            <th>Auftrag</th>
+            <th>Optionen</th>
+        </tr>
+        </thead>
+    {% for bestellung in bestellungen_list %}
+        <tr>
+            <td>{{ bestellung.material_stueck }}</td>
+            <td>{{ bestellung.get_status_display }}</td>
+            <td><a href="{{ MEDIA_URL }}{{ bestellung.rechnung }}">{{ bestellung.rechnung }}</a></td>
+            <td><a href="{{ MEDIA_URL }}{{ bestellung.auftrag }}">{{ bestellung.auftrag }}</a></td>
+            <td><a class="btn btn-small" href="{% url "bestellungedit" bestellung.id %}">Bearbeiten</a></td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

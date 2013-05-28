@@ -1,0 +1,23 @@
+{% extends 'material_base.html' %}
+{% block content %}
+    <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+            <th>Material</th>
+            <th>Beginn der Ausleihe</th>
+            <th>Ende der Ausleihe</th>
+            <th>Ausleiher</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for ausleihe in ausleihen_list %}
+                <tr>
+                    <td>{{ ausleihe.material.name }}</td>
+                    <td>{{ ausleihe.beginn }}</td>
+                    <td>{{ ausleihe.ende }}</td>
+                    <td>{{ ausleihe.user.username }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

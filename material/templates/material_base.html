@@ -1,0 +1,71 @@
+{% extends 'site_base.html' %}
+{% block extra_body %}
+<link href="{{ STATIC_URL }}chosen.css" rel="stylesheet">
+<script src="{{ STATIC_URL }}chosen.jquery.min.js"></script>
+            <script>
+                $(function(){
+                   $('.dropdown-toggle').dropdown();
+                   $('select').chosen();
+                });
+            </script>
+{% endblock %}
+{% block body %}
+    <div class="row-fluid">
+        <div class="span12">
+            <ul class="nav nav-pills">
+            <li class="dropdown">
+              <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                Material
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="{% url "materialindex" %}" role="menuitem" tabindex="-1">Übersicht</a></li>
+                <li><a href="{% url "materialnew" %}" role="menuitem" tabindex="-1">Anlegen</a></li>
+                <li><a href="{% url "materialstuecknew" %}" role="menuitem" tabindex="-1">Inventar anlegen</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
+                Ausleihe
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="{% url "ausleiheuebersicht" %}" role="menuitem" tabindex="-1">Übersicht</a></li>
+                <li><a href="{% url "kategorienew" %}" role="menuitem" tabindex="-1">Ausleihe anlegen</a></li>
+                <li><a href="{% url "lagerortnew" %}" role="menuitem" tabindex="-1">Reservierung anlegen</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                Bestellungen
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="{% url "bestellungen" %}" role="menuitem" tabindex="-1">Übersicht</a></li>
+                <li><a href="{% url "bestellungnew" %}" role="menuitem" tabindex="-1">Bestellung anlegen</a></li>
+                <li><a href="{% url "bestellungnew" %}" role="menuitem" tabindex="-1">Nachbestellung anlegen</a></li>
+              </ul>
+            </li>
+
+            <li class="dropdown">
+              <a class="dropdown-toggle" id="dLabel" role="button" data-toggle="dropdown" data-target="#" href="/page.html">
+                Optionen
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a href="{% url "kategorienew" %}" role="menuitem" tabindex="-1">Kategorie anlegen</a></li>
+                <li><a href="{% url "lagerortnew" %}" role="menuitem" tabindex="-1">Lagerort anlegen</a></li>
+              </ul>
+            </li>
+
+
+            </ul>
+        </div>
+    <hr/>
+    </div>
+    <div class="row-fluid">
+    {% block content %}{% endblock %}
+    </div>
+{% endblock %}
